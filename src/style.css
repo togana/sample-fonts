@@ -1,0 +1,112 @@
+:root {
+  /* Adobe Fonts のキット wkj2aaa で配信される font-family 名に合わせて書き換えてください */
+  --adobe-font-family: "avenir-next-lt-pro";
+  --google-font-family: "Noto Sans JP";
+
+  --fg: #1a1a1a;
+  --muted: #666;
+  --border: #e5e5e5;
+  --bg: #fafafa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font-family: var(--google-font-family), system-ui, sans-serif;
+  font-synthesis: none;
+  line-height: 1.7;
+  padding: 32px 24px 64px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header h1 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+header p {
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.legend {
+  color: var(--muted);
+  font-size: 14px;
+  padding-left: 20px;
+  margin: 0 0 32px;
+}
+
+.font-section {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.font-section h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.font-section article + article {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border);
+}
+
+.label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.sample {
+  margin: 0;
+  font-size: 20px;
+  /* 念のため section ごとにも合成を抑止 */
+  font-synthesis: none;
+}
+
+.adobe .sample {
+  font-family: var(--adobe-font-family), serif;
+}
+
+.google .sample {
+  font-family: var(--google-font-family), sans-serif;
+}
+
+.mixed .sample {
+  font-family: var(--adobe-font-family), var(--google-font-family), sans-serif;
+}
+
+.note {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: #f0f0f0;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+a {
+  color: #0366d6;
+}

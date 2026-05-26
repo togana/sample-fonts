@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adobe Fonts × Google Fonts font-weight fallback check</title>
+
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/nya3dto.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      :root {
+        --latin-font-family: "avenir-next-lt-pro";
+        --japan-font-family: "Noto Sans JP";
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p><a href="./index.html">← 一覧へ戻る</a></p>
+      <h1>Adobe Fonts × Google Fonts font-weight fallback check</h1>
+      <p>
+        Adobe Fonts 側で 500 / 700 のみ、Google Fonts 側で 400 / 600 のみを読み込み、
+        ブラウザの <a href="https://developer.mozilla.org/ja/docs/Web/CSS/Reference/Properties/font-weight#%E5%A4%AA%E3%81%95%E3%81%AE%E4%BB%A3%E6%9B%BF">font-weight 代替ルール</a>
+        による近接フォールバックを確認するページです。
+        <code>font-synthesis: none</code> を指定して、合成による疑似ウェイトを抑止しています。
+      </p>
+      <ul class="legend">
+        <li>font-weight: 400 → Adobe は 500 / Google は 400 にマッチする想定</li>
+        <li>font-weight: 700 → Adobe は 700 / Google は 600 にマッチする想定</li>
+      </ul>
+    </header>
+
+    <main>
+      <section class="font-section latin">
+        <h2>Adobe Fonts (loaded: 500, 700)</h2>
+
+        <article>
+          <div class="label">指定 <code>font-weight: 400</code> → 500 にマッチ想定</div>
+          <p class="sample" style="font-weight: 400">
+            あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。
+            The quick brown fox jumps over the lazy dog. 0123456789
+          </p>
+        </article>
+
+        <article>
+          <div class="label">指定 <code>font-weight: 500</code> → 500 にマッチ</div>
+          <p class="sample" style="font-weight: 500">
+            あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。
+            The quick brown fox jumps over the lazy dog. 0123456789
+          </p>
+        </article>
+
+        <article>
+          <div class="label">指定 <code>font-weight: 700</code> → 700 にマッチ</div>
+          <p class="sample" style="font-weight: 700">
+            あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。
+            The quick brown fox jumps over the lazy dog. 0123456789
+          </p>
+        </article>
+      </section>
+
+      <section class="font-section japan">
+        <h2>Google Fonts / Noto Sans JP (loaded: 400, 600)</h2>
+
+        <article>
+          <div class="label">指定 <code>font-weight: 400</code> → 400 にマッチ</div>
+          <p class="sample" style="font-weight: 400">
+            あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。
+            The quick brown fox jumps over the lazy dog. 0123456789
+          </p>
+        </article>
+
+        <article>
+          <div class="label">指定 <code>font-weight: 600</code> → 600 にマッチ</div>
+          <p class="sample" style="font-weight: 600">
+            あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。
+            The quick brown fox jumps over the lazy dog. 0123456789
+          </p>
+        </article>
+
+        <article>
+          <div class="label">指定 <code>font-weight: 700</code> → 600 にマッチ想定</div>
+          <p class="sample" style="font-weight: 700">
+            あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。
+            The quick brown fox jumps over the lazy dog. 0123456789
+          </p>
+        </article>
+      </section>
+
+      <section class="font-section mixed">
+        <h2>Mixed: <code>font-family: latin, japan</code> (英語は Adobe / 日本語は Google にフォールバック)</h2>
+        <p class="note">
+          <code>avenir-next-lt-pro</code> はラテン文字専用のため、日本語グリフは次に指定した
+          Noto Sans JP にフォールバックします。
+          英語=Adobe(500/700) / 日本語=Google(400/600) のそれぞれで近接ウェイトにマッチします。
+        </p>
+
+        <article>
+          <div class="label">指定 <code>font-weight: 400</code> → 英語は Adobe 500 / 日本語は Google 400 にマッチ想定</div>
+          <p class="sample" style="font-weight: 400">
+            あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。
+            The quick brown fox jumps over the lazy dog. 0123456789
+          </p>
+        </article>
+
+        <article>
+          <div class="label">指定 <code>font-weight: 700</code> → 英語は Adobe 700 / 日本語は Google 600 にマッチ想定</div>
+          <p class="sample" style="font-weight: 700">
+            あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。
+            The quick brown fox jumps over the lazy dog. 0123456789
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

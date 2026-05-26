@@ -1,7 +1,4 @@
 :root {
-  --adobe-font-family: "avenir-next-lt-pro";
-  --google-font-family: "Noto Sans JP";
-
   --fg: #1a1a1a;
   --muted: #666;
   --border: #e5e5e5;
@@ -82,16 +79,16 @@ header p {
   font-synthesis: none;
 }
 
-.adobe .sample {
-  font-family: var(--adobe-font-family), sans-serif;
+.latin .sample {
+  font-family: var(--latin-font-family), sans-serif;
 }
 
-.google .sample {
-  font-family: var(--google-font-family), sans-serif;
+.japan .sample {
+  font-family: var(--japan-font-family), sans-serif;
 }
 
 .mixed .sample {
-  font-family: var(--adobe-font-family), var(--google-font-family), sans-serif;
+  font-family: var(--latin-font-family), var(--japan-font-family), sans-serif;
 }
 
 .note {

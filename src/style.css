@@ -1,5 +1,4 @@
 :root {
-  /* Adobe Fonts のキット wkj2aaa で配信される font-family 名に合わせて書き換えてください */
   --adobe-font-family: "avenir-next-lt-pro";
   --google-font-family: "Noto Sans JP";
 
@@ -22,7 +21,7 @@ body {
 }
 
 body {
-  font-family: var(--google-font-family), system-ui, sans-serif;
+  font-family: sans-serif;
   font-synthesis: none;
   line-height: 1.7;
   padding: 32px 24px 64px;
@@ -84,7 +83,7 @@ header p {
 }
 
 .adobe .sample {
-  font-family: var(--adobe-font-family), serif;
+  font-family: var(--adobe-font-family), sans-serif;
 }
 
 .google .sample {
@@ -102,7 +101,7 @@ header p {
 }
 
 code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: monospace;
   font-size: 0.9em;
   background: #f0f0f0;
   padding: 1px 6px;
